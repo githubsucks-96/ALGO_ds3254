@@ -95,33 +95,34 @@ int main() {
 }
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 int main() {
-    ifstream file("array.txt"); // Open file for reading
+    ifstream file("array.txt"); // Open file
 
     if (!file) {
         cout << "Error opening file!" << endl;
         return 1;
     }
 
-    int size;
-    file >> size; // Read array size
+    vector<int> arr; // Use a vector instead of a fixed-size array
+    int num;
 
-    int* arr = new int[size]; // Dynamically allocate array
-
-    for (int i = 0; i < size; i++) {
-        file >> arr[i]; // Read array elements
+    while (file >> num) { // Read until EOF
+        arr.push_back(num);
     }
 
     file.close();
 
     cout << "Array read from file: ";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
+    for (int n : arr) {
+        cout << n << " ";
     }
     cout << endl;
 
-    delete[] arr; // Free allocated memory
+    return 0;
+}
+llocated memory
     return 0;
 }
