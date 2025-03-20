@@ -61,3 +61,6 @@ int main() {
     read();
     return 0;
 }
+
+#include<string>
+stoi
